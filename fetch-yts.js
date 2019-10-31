@@ -1,25 +1,33 @@
 'use strict';
 
 // Fetch (ajax) y peticiones a servicios / apis rest 
-
 var peli = [];
 var usuarios = [];
+var div_torrents = document.querySelector("#torrents");
 var div_cine = document.querySelector("#cine");
 fetch("https://yts.lt/api/v2/list_movies.json")
   .then(data => data.json())
   .then(peliculas => {
-    peli = peliculas.data;
-    console.log(JSON.stringify(peli.movies[19]['url']));
-    peli.movies.map((name, i) => {
-       let nombre = document.createElement('H3');
-       let url = document.createElement('a');
-      // let image
-      nombre.innerHTML = i + " --  " + name.title;
-      url.innerHTML = name.url
-      url.href = name.url  ;
-      div_cine.appendChild(nombre);
-      div_cine.appendChild(url);
+	peli = peliculas.data;
+	//console.log(JSON.stringify(peli.movies[19]['torrents'][0]['url'] ));
+	peli.movies.map((name, i) => {
+	let nombre = document.createElement('H3');
+	let url = document.createElement('a');
+	
+	let torrent = document.createElement('a');
+      // let thumbnail = document.createElement('imag')
+	nombre.innerHTML = i + " --  " + name.title_long;
+	url.innerHTML = name.url;
+	torrent.innerHTML = name.torrents[0].url ;
 
-      
+	url.href = name.url  ;
+        torrent.href= name.torrents[0].url;
+
+	div_cine.appendChild(nombre);
+	div_cine.appendChild(torrent);
+
+	div_cine.appendChild(url);
+	
     });
+
   });
