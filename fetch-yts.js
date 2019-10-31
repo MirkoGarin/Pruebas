@@ -10,7 +10,7 @@ fetch("https://yts.lt/api/v2/list_movies.json")
 	peli = peliculas.data;
 	//console.log(JSON.stringify(peli.movies[19]['torrents'][0]['url'] ));
 	peli.movies.map((name, i) => {
-	let nombre = document.createElement('H4');
+	let nombre = document.createElement('p');
 	let url = document.createElement('a');
 	let torrent = document.createElement('a');
       // let thumbnail = document.createElement('imag')
