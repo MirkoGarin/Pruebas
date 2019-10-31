@@ -12,9 +12,11 @@ fetch("https://yts.lt/api/v2/list_movies.json")
     console.log(JSON.stringify(peli.movies[19]['url']));
     peli.movies.map((name, i) => {
        let nombre = document.createElement('H3');
-       let url = document.createElement('b');
+       let url = document.createElement('a');
+      // let image
       nombre.innerHTML = i + " --  " + name.title;
-      url.innerHTML = name.url;
+      url.innerHTML = name.url
+      url.href = name.url  ;
       div_cine.appendChild(nombre);
       div_cine.appendChild(url);
 
