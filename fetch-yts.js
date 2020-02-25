@@ -12,7 +12,7 @@ fetch("https://yts.mx/api/v2/list_movies.json")
 	console.log(peli.movies[0].medium_cover_image);
 	
 	peli.movies.map((name, i) => {
-	let nombre = document.createElement('p');
+	let nombre = document.createElement('h3');
 	let url = document.createElement('a');
 	let torrent = document.createElement('a');
 	let img = document.createElement('img');
